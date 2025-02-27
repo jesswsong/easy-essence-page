@@ -40,7 +40,11 @@ export default function Contact() {
   };
 
   return (
-    <div className="container py-12 space-y-12 md:py-24 animate-fade-in">
+    <div className="container py-12 space-y-12 md:py-24 animate-fade-in relative overflow-hidden">
+      {/* Red blob decorative elements */}
+      <div className="red-blob-effect w-[250px] h-[250px] top-20 right-[-100px] animate-float"></div>
+      <div className="red-blob-effect w-[350px] h-[350px] bottom-10 left-[-150px] animate-float animation-delay-1000"></div>
+      
       <SectionHeader
         title="Contact"
         description="Get in touch with me for collaborations, inquiries, or just to say hello."

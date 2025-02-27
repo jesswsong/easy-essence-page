@@ -43,10 +43,10 @@ export default function Misc() {
   ];
 
   return (
-    <div className="container py-12 space-y-12 md:py-24 animate-fade-in relative">
-      {/* Background decorative elements */}
-      <div className="blob-effect bg-primary/30 top-20 right-20 animate-float"></div>
-      <div className="blob-effect bg-accent/30 bottom-40 left-20 animate-float animation-delay-1000"></div>
+    <div className="container py-12 space-y-12 md:py-24 animate-fade-in relative overflow-hidden">
+      {/* Red blob decorative elements */}
+      <div className="red-blob-effect w-[300px] h-[300px] top-[-50px] right-[-150px] animate-float"></div>
+      <div className="red-blob-effect w-[200px] h-[200px] bottom-40 left-[-100px] animate-float animation-delay-1000"></div>
       
       <SectionHeader
         title="Miscellaneous"
@@ -125,49 +125,6 @@ export default function Misc() {
             </CardContent>
           </Card>
         </div>
-      </section>
-      
-      <section className="space-y-8">
-        <SectionHeader
-          title="Tools I Use"
-          description="Some of my favorite tools and equipment for work and hobbies."
-        />
-        
-        <Card className="animate-fade-in animation-delay-300 layered-card">
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div>
-                <h3 className="text-lg font-medium mb-2">Design</h3>
-                <ul className="space-y-1 text-muted-foreground">
-                  <li>Figma</li>
-                  <li>Adobe Creative Suite</li>
-                  <li>iPad Pro & Apple Pencil</li>
-                  <li>Notion for notes</li>
-                </ul>
-              </div>
-              
-              <div>
-                <h3 className="text-lg font-medium mb-2">Development</h3>
-                <ul className="space-y-1 text-muted-foreground">
-                  <li>VS Code with custom theme</li>
-                  <li>MacBook Pro</li>
-                  <li>GitHub Copilot</li>
-                  <li>iTerm with Oh My Zsh</li>
-                </ul>
-              </div>
-              
-              <div>
-                <h3 className="text-lg font-medium mb-2">Photography</h3>
-                <ul className="space-y-1 text-muted-foreground">
-                  <li>Fujifilm X-T4</li>
-                  <li>35mm f/1.4 lens</li>
-                  <li>16mm f/1.4 lens</li>
-                  <li>Lightweight tripod</li>
-                </ul>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
       </section>
     </div>
   );

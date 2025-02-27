@@ -57,7 +57,11 @@ export default function Resume() {
   ];
 
   return (
-    <div className="container py-12 space-y-12 md:py-24 animate-fade-in">
+    <div className="container py-12 space-y-12 md:py-24 animate-fade-in relative overflow-hidden">
+      {/* Red blob decorative elements */}
+      <div className="red-blob-effect w-[300px] h-[300px] top-20 right-[-150px] animate-float"></div>
+      <div className="red-blob-effect w-[250px] h-[250px] bottom-40 left-[-100px] animate-float animation-delay-1000"></div>
+      
       <div className="flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
         <SectionHeader
           title="Resume"
