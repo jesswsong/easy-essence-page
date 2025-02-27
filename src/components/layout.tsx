@@ -3,6 +3,11 @@ import { useLocation } from "react-router-dom";
 import { NavItem } from "@/components/nav-item";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { cn } from "@/lib/utils";
+import { Link } from "react-router-dom";
+import { Menu } from "lucide-react";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -15,6 +20,7 @@ export function Layout({ children }: LayoutProps) {
     { href: "/", label: "About", path: "/" },
     { href: "/projects", label: "Projects", path: "/projects" },
     { href: "/resume", label: "Resume", path: "/resume" },
+    { href: "/misc", label: "Misc", path: "/misc" },
     { href: "/contact", label: "Contact", path: "/contact" },
   ];
 
@@ -23,7 +29,7 @@ export function Layout({ children }: LayoutProps) {
       <header className="fixed top-0 left-0 right-0 z-40 border-b backdrop-blur-md bg-background/60 transition-all duration-300">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center">
-            <Link to="/" className="text-xl font-medium tracking-tighter transition-colors hover:text-primary">
+            <Link to="/" className="text-xl font-title font-bold tracking-tighter transition-colors hover:text-primary">
               portfolio
             </Link>
           </div>
@@ -62,12 +68,6 @@ export function Layout({ children }: LayoutProps) {
     </div>
   );
 }
-
-import { Menu } from "lucide-react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 interface MobileNavProps {
   items: {

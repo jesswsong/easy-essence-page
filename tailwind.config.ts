@@ -19,6 +19,12 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        intertight: ["'Inter Tight'", "sans-serif"],
+        albert: ["'Albert Sans'", "sans-serif"],
+        sans: ["'Albert Sans'", "system-ui", "sans-serif"],
+        title: ["'Inter Tight'", "system-ui", "sans-serif"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -96,6 +102,14 @@ export default {
           "0%": { transform: "rotate(-5deg)", opacity: "0" },
           "100%": { transform: "rotate(0deg)", opacity: "1" }
         },
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" }
+        },
+        shimmer: {
+          "0%": { backgroundPosition: "-500px 0" },
+          "100%": { backgroundPosition: "500px 0" }
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -107,6 +121,13 @@ export default {
         "slide-in": "slide-in 0.5s ease-out",
         "slide-out": "slide-out 0.5s ease-out",
         "rotate-in": "rotate-in 0.5s ease-out",
+        "float": "float 6s ease-in-out infinite",
+        "shimmer": "shimmer 2s linear infinite",
+      },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "gradient-blur": "linear-gradient(to right, transparent, white, transparent)",
       },
     },
   },
