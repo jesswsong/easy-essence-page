@@ -59,9 +59,9 @@ export default function About() {
   return (
     <div className="container py-12 space-y-12 md:py-24 relative overflow-hidden">
       {/* Red blob decorative elements */}
-      <div className="red-blob-effect w-[300px] h-[300px] top-[-50px] left-[-100px] animate-float"></div>
-      <div className="red-blob-effect w-[400px] h-[400px] bottom-[10%] right-[-200px] animate-float animation-delay-1000"></div>
-      <div className="red-blob-effect w-[200px] h-[200px] bottom-[30%] left-[10%] animate-float animation-delay-2000"></div>
+      <div className="red-blob-effect w-[300px] h-[300px] top-[-50px] left-[-100px]"></div>
+      <div className="red-blob-effect w-[400px] h-[400px] bottom-[10%] right-[-200px]"></div>
+      <div className="red-blob-effect w-[200px] h-[200px] bottom-[30%] left-[10%]"></div>
       
       <section className="space-y-6 relative z-10 flex flex-col md:flex-row items-center gap-8">
         {/* Profile Photo Section */}
@@ -94,7 +94,7 @@ export default function About() {
         
         <div className="space-y-3 text-center md:text-left flex-1">
           <p className="text-sm text-muted-foreground animate-fade-in">Hello, I'm</p>
-          <h1 className="text-4xl font-title font-bold tracking-tight sm:text-5xl xl:text-7xl animate-fade-in animation-delay-100 text-gradient">
+          <h1 className="text-4xl font-title font-bold tracking-tight sm:text-5xl xl:text-7xl animate-fade-in animation-delay-100 text-[#ea384c]">
             {userSettings.name}
           </h1>
           <p className="max-w-[600px] text-xl text-muted-foreground animate-fade-in animation-delay-200">
