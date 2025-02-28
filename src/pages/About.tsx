@@ -1,11 +1,9 @@
 
 import { SectionHeader } from "@/components/section-header";
 import { Card, CardContent } from "@/components/card";
-import { User, Briefcase, FileText, Mail, Shapes, Camera, Upload } from "lucide-react";
+import { User, Briefcase, FileText, Mail, Shapes } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { useRef, useState } from "react";
-import { useToast } from "@/components/ui/use-toast";
 
 // User settings - add your name here
 const userSettings = {
@@ -14,48 +12,6 @@ const userSettings = {
 };
 
 export default function About() {
-  const { toast } = useToast();
-  const fileInputRef = useRef<HTMLInputElement>(null);
-  const [profilePhoto, setProfilePhoto] = useState<string | null>(null);
-
-  const handlePhotoUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (!file) return;
-
-    // Check file type
-    if (!file.type.startsWith('image/')) {
-      toast({
-        title: "Invalid file type",
-        description: "Please upload an image file.",
-        variant: "destructive"
-      });
-      return;
-    }
-    
-    // Check file size (max 5MB)
-    if (file.size > 5 * 1024 * 1024) {
-      toast({
-        title: "File too large",
-        description: "Please upload an image smaller than 5MB.",
-        variant: "destructive"
-      });
-      return;
-    }
-
-    // Create URL for the uploaded image
-    const imageUrl = URL.createObjectURL(file);
-    setProfilePhoto(imageUrl);
-    
-    toast({
-      title: "Photo uploaded",
-      description: "Your profile photo has been updated.",
-    });
-  };
-
-  const triggerFileInput = () => {
-    fileInputRef.current?.click();
-  };
-
   return (
     <div className="container py-12 space-y-12 md:py-24 relative overflow-hidden">
       {/* Red blob decorative elements */}
@@ -66,35 +22,16 @@ export default function About() {
       <section className="space-y-6 relative z-10 flex flex-col md:flex-row items-center gap-8">
         {/* Profile Photo Section */}
         <div className="profile-photo-container animate-fade-in">
-          {profilePhoto ? (
-            <img 
-              src={profilePhoto} 
-              alt="Profile" 
-              className="w-full h-full object-cover"
-            />
-          ) : (
-            <div className="w-full h-full bg-secondary flex items-center justify-center">
-              <User className="h-20 w-20 text-muted-foreground" />
-            </div>
-          )}
-          <div className="photo-upload-overlay" onClick={triggerFileInput}>
-            <div className="flex flex-col items-center gap-2">
-              <Camera className="h-8 w-8 text-white" />
-              <span className="text-white text-sm">Upload Photo</span>
-            </div>
-          </div>
-          <input 
-            type="file" 
-            ref={fileInputRef} 
-            className="hidden" 
-            accept="image/*" 
-            onChange={handlePhotoUpload}
+          <img 
+            src="/lovable-uploads/5c88fa3a-35d0-4191-a4a4-879efb15b9b0.png" 
+            alt="Mountain landscape with tunnel" 
+            className="w-full h-full object-cover"
           />
         </div>
         
         <div className="space-y-3 text-center md:text-left flex-1">
           <p className="text-sm text-muted-foreground animate-fade-in">Hello, I'm</p>
-          <h1 className="text-4xl font-title font-bold tracking-tight sm:text-5xl xl:text-7xl animate-fade-in animation-delay-100 text-[#ea384c]">
+          <h1 className="text-4xl font-title font-bold tracking-tight sm:text-5xl xl:text-7xl animate-fade-in animation-delay-100 text-primary">
             {userSettings.name}
           </h1>
           <p className="max-w-[600px] text-xl text-muted-foreground animate-fade-in animation-delay-200">

@@ -1,9 +1,71 @@
 
 import { SectionHeader } from "@/components/section-header";
 import { Card, CardContent, CardTitle, CardDescription } from "@/components/card";
-import { Book, Coffee, Camera, Headphones, Mountain, Code, Palette } from "lucide-react";
+import { Book, Coffee, Camera, Headphones, Mountain, Code, Palette, Upload, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useRef, useState } from "react";
+import { useToast } from "@/components/ui/use-toast";
 
 export default function Misc() {
+  const { toast } = useToast();
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [photos, setPhotos] = useState<{ id: number; url: string }[]>([]);
+  const [nextId, setNextId] = useState(1);
+
+  const handlePhotoUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    // Check file type
+    if (!file.type.startsWith('image/')) {
+      toast({
+        title: "Invalid file type",
+        description: "Please upload an image file.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    // Check file size (max 5MB)
+    if (file.size > 5 * 1024 * 1024) {
+      toast({
+        title: "File too large",
+        description: "Please upload an image smaller than 5MB.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    // Create URL for the uploaded image
+    const imageUrl = URL.createObjectURL(file);
+    
+    // Add new photo to the collection
+    setPhotos([...photos, { id: nextId, url: imageUrl }]);
+    setNextId(nextId + 1);
+    
+    toast({
+      title: "Photo uploaded",
+      description: "Your photo has been added to the collection.",
+    });
+    
+    // Reset file input
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
+  };
+
+  const triggerFileInput = () => {
+    fileInputRef.current?.click();
+  };
+
+  const removePhoto = (id: number) => {
+    setPhotos(photos.filter(photo => photo.id !== id));
+    toast({
+      title: "Photo removed",
+      description: "The photo has been removed from your collection.",
+    });
+  };
+
   const interests = [
     {
       icon: <Book className="h-6 w-6 text-primary" />,
@@ -45,13 +107,67 @@ export default function Misc() {
   return (
     <div className="container py-12 space-y-12 md:py-24 animate-fade-in relative overflow-hidden">
       {/* Red blob decorative elements */}
-      <div className="red-blob-effect w-[300px] h-[300px] top-[-50px] right-[-150px] animate-float"></div>
-      <div className="red-blob-effect w-[200px] h-[200px] bottom-40 left-[-100px] animate-float animation-delay-1000"></div>
+      <div className="red-blob-effect w-[300px] h-[300px] top-[-50px] right-[-150px]"></div>
+      <div className="red-blob-effect w-[200px] h-[200px] bottom-40 left-[-100px]"></div>
       
       <SectionHeader
         title="Miscellaneous"
         description="Other interests, hobbies, and things that inspire me outside of my professional work."
       />
+      
+      <section className="space-y-8">
+        <SectionHeader
+          title="Photo Collection"
+          description="Upload and showcase your favorite photos."
+        />
+        
+        <Card className="layered-card p-6">
+          <CardContent className="p-0 space-y-6">
+            <div 
+              className="border-2 border-dashed border-primary/30 rounded-lg p-8 flex flex-col items-center justify-center cursor-pointer hover:bg-primary/5 transition-colors"
+              onClick={triggerFileInput}
+            >
+              <Upload className="h-10 w-10 text-primary mb-3" />
+              <p className="text-center text-muted-foreground">
+                Click to upload a photo to your collection
+              </p>
+              <p className="text-xs text-muted-foreground mt-2">
+                JPG, PNG, or GIF • Max 5MB
+              </p>
+              <input 
+                type="file" 
+                ref={fileInputRef} 
+                className="hidden" 
+                accept="image/*" 
+                onChange={handlePhotoUpload}
+              />
+            </div>
+            
+            {photos.length > 0 && (
+              <div>
+                <h3 className="text-lg font-medium mb-4">Your Photo Collection</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                  {photos.map((photo) => (
+                    <div key={photo.id} className="relative group">
+                      <img 
+                        src={photo.url} 
+                        alt="Collection" 
+                        className="w-full h-48 object-cover rounded-lg"
+                      />
+                      <button
+                        className="absolute top-2 right-2 bg-red-500 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                        onClick={() => removePhoto(photo.id)}
+                      >
+                        <X className="h-4 w-4" />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      </section>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {interests.map((item, index) => (
