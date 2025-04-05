@@ -41,10 +41,6 @@ export default function Contact() {
 
   return (
     <div className="container py-12 space-y-12 md:py-24 animate-fade-in relative overflow-hidden">
-      {/* Red blob decorative elements */}
-      <div className="red-blob-effect w-[250px] h-[250px] top-20 right-[-100px] animate-float"></div>
-      <div className="red-blob-effect w-[350px] h-[350px] bottom-10 left-[-150px] animate-float animation-delay-1000"></div>
-      
       <SectionHeader
         title="Contact"
         description="Get in touch with me for collaborations, inquiries, or just to say hello."
@@ -52,8 +48,8 @@ export default function Contact() {
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         <div className="space-y-6">
-          <Card className="animate-fade-in animation-delay-100">
-            <div className="flex items-center space-x-4">
+          <Card className="animate-fade-in animation-delay-100 minimalist-card">
+            <div className="flex items-center space-x-4 p-6">
               <Mail className="h-6 w-6 text-primary" />
               <div>
                 <h3 className="text-lg font-medium">Email</h3>
@@ -62,8 +58,8 @@ export default function Contact() {
             </div>
           </Card>
           
-          <Card className="animate-fade-in animation-delay-200">
-            <div className="flex items-center space-x-4">
+          <Card className="animate-fade-in animation-delay-200 minimalist-card">
+            <div className="flex items-center space-x-4 p-6">
               <MessageSquare className="h-6 w-6 text-primary" />
               <div>
                 <h3 className="text-lg font-medium">Message</h3>
@@ -91,8 +87,8 @@ export default function Contact() {
           </div>
         </div>
         
-        <Card className="animate-fade-in animation-delay-400">
-          <form onSubmit={handleSubmit} className="space-y-6">
+        <Card className="animate-fade-in animation-delay-400 minimalist-card">
+          <form onSubmit={handleSubmit} className="space-y-6 p-6">
             <div className="space-y-4">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">

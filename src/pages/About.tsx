@@ -14,14 +14,9 @@ const userSettings = {
 export default function About() {
   return (
     <div className="container py-12 space-y-12 md:py-24 relative overflow-hidden">
-      {/* Red blob decorative elements - fixed position */}
-      <div className="red-blob-effect w-[300px] h-[300px] top-[-50px] left-[-100px]"></div>
-      <div className="red-blob-effect w-[400px] h-[400px] bottom-[10%] right-[-200px]"></div>
-      <div className="red-blob-effect w-[200px] h-[200px] bottom-[30%] left-[10%]"></div>
-      
       <section className="space-y-6 relative z-10 flex flex-col md:flex-row items-center gap-8">
         {/* Profile Photo Section */}
-        <div className="profile-photo-container animate-fade-in">
+        <div className="profile-photo-container animate-fade-in subtle-shadow">
           <img 
             src="/lovable-uploads/5c88fa3a-35d0-4191-a4a4-879efb15b9b0.png" 
             alt="Mountain landscape with tunnel" 
@@ -55,7 +50,7 @@ export default function About() {
         />
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <Card className="animate-fade-in animation-delay-300 layered-card">
+          <Card className="animate-fade-in animation-delay-300 minimalist-card">
             <CardContent>
               <p className="leading-relaxed">
                 I've spent years refining my approach to design and development, always focused on creating experiences that feel effortless and intuitive. My work philosophy is heavily influenced by the principles of minimalism and functionality.
@@ -63,7 +58,7 @@ export default function About() {
             </CardContent>
           </Card>
           
-          <Card className="animate-fade-in animation-delay-400 layered-card">
+          <Card className="animate-fade-in animation-delay-400 minimalist-card">
             <CardContent>
               <p className="leading-relaxed">
                 When I'm not designing or coding, you might find me exploring photography, reading about architecture, or enjoying a cup of precisely brewed coffee. The attention to detail I bring to my personal pursuits translates directly to my professional work.
@@ -80,7 +75,7 @@ export default function About() {
         />
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-          <Card className="hover-lift animate-fade-in animation-delay-300 group" onClick={() => window.location.href = '/'}>
+          <Card className="hover-lift animate-fade-in animation-delay-300 group minimalist-card" onClick={() => window.location.href = '/'}>
             <div className="flex flex-col items-center text-center p-6">
               <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                 <User className="h-6 w-6 text-primary" />
@@ -90,7 +85,7 @@ export default function About() {
             </div>
           </Card>
           
-          <Card className="hover-lift animate-fade-in animation-delay-400 group" onClick={() => window.location.href = '/projects'}>
+          <Card className="hover-lift animate-fade-in animation-delay-400 group minimalist-card" onClick={() => window.location.href = '/projects'}>
             <div className="flex flex-col items-center text-center p-6">
               <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                 <Briefcase className="h-6 w-6 text-primary" />
@@ -100,7 +95,7 @@ export default function About() {
             </div>
           </Card>
           
-          <Card className="hover-lift animate-fade-in animation-delay-500 group" onClick={() => window.location.href = '/resume'}>
+          <Card className="hover-lift animate-fade-in animation-delay-500 group minimalist-card" onClick={() => window.location.href = '/resume'}>
             <div className="flex flex-col items-center text-center p-6">
               <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                 <FileText className="h-6 w-6 text-primary" />
@@ -110,7 +105,7 @@ export default function About() {
             </div>
           </Card>
           
-          <Card className="hover-lift animate-fade-in animation-delay-600 group" onClick={() => window.location.href = '/contact'}>
+          <Card className="hover-lift animate-fade-in animation-delay-600 group minimalist-card" onClick={() => window.location.href = '/contact'}>
             <div className="flex flex-col items-center text-center p-6">
               <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                 <Mail className="h-6 w-6 text-primary" />
@@ -120,7 +115,7 @@ export default function About() {
             </div>
           </Card>
           
-          <Card className="hover-lift animate-fade-in animation-delay-700 group" onClick={() => window.location.href = '/misc'}>
+          <Card className="hover-lift animate-fade-in animation-delay-700 group minimalist-card" onClick={() => window.location.href = '/misc'}>
             <div className="flex flex-col items-center text-center p-6">
               <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                 <Shapes className="h-6 w-6 text-primary" />

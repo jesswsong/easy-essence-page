@@ -58,10 +58,6 @@ export default function Resume() {
 
   return (
     <div className="container py-12 space-y-12 md:py-24 animate-fade-in relative overflow-hidden">
-      {/* Red blob decorative elements */}
-      <div className="red-blob-effect w-[300px] h-[300px] top-20 right-[-150px]"></div>
-      <div className="red-blob-effect w-[250px] h-[250px] bottom-40 left-[-100px]"></div>
-      
       <div className="flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
         <SectionHeader
           title="Resume"
@@ -76,7 +72,7 @@ export default function Resume() {
         <h3 className="text-xl font-semibold tracking-tight">Work Experience</h3>
         <div className="space-y-6">
           {experience.map((job, index) => (
-            <Card key={job.position} className={`animate-fade-in animation-delay-${(index + 1) * 100}`}>
+            <Card key={job.position} className={`animate-fade-in animation-delay-${(index + 1) * 100} minimalist-card`}>
               <CardTitle>{job.position}</CardTitle>
               <CardDescription className="mt-1">
                 {job.company} • {job.period}
@@ -93,7 +89,7 @@ export default function Resume() {
         <h3 className="text-xl font-semibold tracking-tight">Education</h3>
         <div className="space-y-6">
           {education.map((edu, index) => (
-            <Card key={edu.degree} className={`animate-fade-in animation-delay-${(index + 1) * 100}`}>
+            <Card key={edu.degree} className={`animate-fade-in animation-delay-${(index + 1) * 100} minimalist-card`}>
               <CardTitle>{edu.degree}</CardTitle>
               <CardDescription className="mt-1">
                 {edu.institution} • {edu.period}
@@ -110,7 +106,7 @@ export default function Resume() {
         <h3 className="text-xl font-semibold tracking-tight">Skills</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {skills.map((skillSet, index) => (
-            <Card key={skillSet.category} className={`animate-fade-in animation-delay-${(index + 1) * 100}`}>
+            <Card key={skillSet.category} className={`animate-fade-in animation-delay-${(index + 1) * 100} minimalist-card`}>
               <CardTitle>{skillSet.category}</CardTitle>
               <CardContent>
                 <ul className="space-y-2">

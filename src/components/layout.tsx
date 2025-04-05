@@ -8,6 +8,7 @@ import { Menu } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { MouseBlob } from "@/components/mouse-blob";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -26,6 +27,7 @@ export function Layout({ children }: LayoutProps) {
 
   return (
     <div className="flex min-h-screen flex-col">
+      <MouseBlob />
       <header className="fixed top-0 left-0 right-0 z-40 border-b backdrop-blur-md bg-background/60 transition-all duration-300">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center">
