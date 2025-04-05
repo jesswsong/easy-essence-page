@@ -1,3 +1,4 @@
+
 import { SectionHeader } from "@/components/section-header";
 import { Card, CardContent, CardTitle, CardDescription } from "@/components/card";
 import { Book, Coffee, Camera, Headphones, Mountain, Code, Palette } from "lucide-react";
@@ -76,7 +77,7 @@ export default function Misc() {
   ];
 
   return (
-    <div className="container py-6 space-y-8 animate-fade-in relative overflow-hidden">
+    <div className="container py-12 space-y-12 md:py-24 animate-fade-in relative overflow-hidden">
       <SectionHeader
         title="Miscellaneous"
         description="Other interests, hobbies, and things that inspire me outside of my professional work."
