@@ -1,71 +1,43 @@
 
 import { SectionHeader } from "@/components/section-header";
 import { Card, CardContent, CardTitle, CardDescription } from "@/components/card";
-import { Book, Coffee, Camera, Headphones, Mountain, Code, Palette, Upload, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useRef, useState } from "react";
-import { useToast } from "@/components/ui/use-toast";
+import { Book, Coffee, Camera, Headphones, Mountain, Code, Palette } from "lucide-react";
+
+// Stock photos collection
+const stockPhotos = [
+  {
+    id: 1,
+    url: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&w=800&q=80",
+    caption: "Woman working on laptop"
+  },
+  {
+    id: 2,
+    url: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&q=80",
+    caption: "Laptop computer"
+  },
+  {
+    id: 3,
+    url: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+    caption: "Circuit board macro"
+  },
+  {
+    id: 4,
+    url: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+    caption: "Programming monitor"
+  },
+  {
+    id: 5,
+    url: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80",
+    caption: "Person using MacBook"
+  },
+  {
+    id: 6,
+    url: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
+    caption: "Woman using laptop"
+  }
+];
 
 export default function Misc() {
-  const { toast } = useToast();
-  const fileInputRef = useRef<HTMLInputElement>(null);
-  const [photos, setPhotos] = useState<{ id: number; url: string }[]>([]);
-  const [nextId, setNextId] = useState(1);
-
-  const handlePhotoUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (!file) return;
-
-    // Check file type
-    if (!file.type.startsWith('image/')) {
-      toast({
-        title: "Invalid file type",
-        description: "Please upload an image file.",
-        variant: "destructive"
-      });
-      return;
-    }
-    
-    // Check file size (max 5MB)
-    if (file.size > 5 * 1024 * 1024) {
-      toast({
-        title: "File too large",
-        description: "Please upload an image smaller than 5MB.",
-        variant: "destructive"
-      });
-      return;
-    }
-
-    // Create URL for the uploaded image
-    const imageUrl = URL.createObjectURL(file);
-    
-    // Add new photo to the collection
-    setPhotos([...photos, { id: nextId, url: imageUrl }]);
-    setNextId(nextId + 1);
-    
-    toast({
-      title: "Photo uploaded",
-      description: "Your photo has been added to the collection.",
-    });
-    
-    // Reset file input
-    if (fileInputRef.current) {
-      fileInputRef.current.value = '';
-    }
-  };
-
-  const triggerFileInput = () => {
-    fileInputRef.current?.click();
-  };
-
-  const removePhoto = (id: number) => {
-    setPhotos(photos.filter(photo => photo.id !== id));
-    toast({
-      title: "Photo removed",
-      description: "The photo has been removed from your collection.",
-    });
-  };
-
   const interests = [
     {
       icon: <Book className="h-6 w-6 text-primary" />,
@@ -118,53 +90,25 @@ export default function Misc() {
       <section className="space-y-8">
         <SectionHeader
           title="Photo Collection"
-          description="Upload and showcase your favorite photos."
+          description="A collection of inspirational photography from my travels and projects."
         />
         
-        <Card className="layered-card p-6">
-          <CardContent className="p-0 space-y-6">
-            <div 
-              className="border-2 border-dashed border-primary/30 rounded-lg p-8 flex flex-col items-center justify-center cursor-pointer hover:bg-primary/5 transition-colors"
-              onClick={triggerFileInput}
-            >
-              <Upload className="h-10 w-10 text-primary mb-3" />
-              <p className="text-center text-muted-foreground">
-                Click to upload a photo to your collection
-              </p>
-              <p className="text-xs text-muted-foreground mt-2">
-                JPG, PNG, or GIF • Max 5MB
-              </p>
-              <input 
-                type="file" 
-                ref={fileInputRef} 
-                className="hidden" 
-                accept="image/*" 
-                onChange={handlePhotoUpload}
-              />
-            </div>
-            
-            {photos.length > 0 && (
-              <div>
-                <h3 className="text-lg font-medium mb-4">Your Photo Collection</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                  {photos.map((photo) => (
-                    <div key={photo.id} className="relative group">
-                      <img 
-                        src={photo.url} 
-                        alt="Collection" 
-                        className="w-full h-48 object-cover rounded-lg"
-                      />
-                      <button
-                        className="absolute top-2 right-2 bg-red-500 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity"
-                        onClick={() => removePhoto(photo.id)}
-                      >
-                        <X className="h-4 w-4" />
-                      </button>
-                    </div>
-                  ))}
+        <Card className="layered-card">
+          <CardContent className="p-6 space-y-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {stockPhotos.map((photo) => (
+                <div key={photo.id} className="relative group">
+                  <img 
+                    src={photo.url} 
+                    alt={photo.caption} 
+                    className="w-full h-48 object-cover rounded-lg"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-2 text-sm rounded-b-lg">
+                    {photo.caption}
+                  </div>
                 </div>
-              </div>
-            )}
+              ))}
+            </div>
           </CardContent>
         </Card>
       </section>

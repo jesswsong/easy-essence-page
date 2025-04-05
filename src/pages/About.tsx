@@ -14,7 +14,7 @@ const userSettings = {
 export default function About() {
   return (
     <div className="container py-12 space-y-12 md:py-24 relative overflow-hidden">
-      {/* Red blob decorative elements */}
+      {/* Red blob decorative elements - fixed position */}
       <div className="red-blob-effect w-[300px] h-[300px] top-[-50px] left-[-100px]"></div>
       <div className="red-blob-effect w-[400px] h-[400px] bottom-[10%] right-[-200px]"></div>
       <div className="red-blob-effect w-[200px] h-[200px] bottom-[30%] left-[10%]"></div>

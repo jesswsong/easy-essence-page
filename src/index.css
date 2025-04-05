@@ -121,7 +121,7 @@
     filter: blur(60px);
     @apply absolute z-[-1] rounded-full opacity-40 mix-blend-multiply;
     animation: none !important; /* Disable animation to make it stay in place */
-    background-color: #ea384c !important; /* Use a fixed color that matches PowerPoint */
+    background-color: #ea384c !important; /* Use a fixed color that matches the theme */
     position: fixed !important; /* Make it fixed to stay in place */
   }
 
