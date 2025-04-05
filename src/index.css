@@ -4,7 +4,7 @@
 
 /* Global color variable - Change this to modify the primary color throughout the site */
 :root {
-  --brand-color: 220 80% 60%; /* Default: Blue color - Change this to experiment with different colors */
+  --brand-color: #0C4160;
 }
 
 @layer base {
