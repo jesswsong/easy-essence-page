@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { SectionHeader } from "@/components/section-header";
 import { Card, CardTitle, CardDescription, CardContent } from "@/components/card";
@@ -104,11 +103,7 @@ export default function Projects() {
   };
 
   return (
-    <div className="container py-12 space-y-12 md:py-24 animate-fade-in relative overflow-hidden">
-      {/* Red blob decorative elements */}
-      <div className="red-blob-effect w-[250px] h-[250px] top-20 right-[-100px]"></div>
-      <div className="red-blob-effect w-[300px] h-[300px] bottom-20 left-[-150px]"></div>
-      
+    <div className="container py-6 space-y-8 animate-fade-in relative overflow-hidden">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
         <SectionHeader
           title="Projects"

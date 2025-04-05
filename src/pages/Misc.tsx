@@ -1,4 +1,3 @@
-
 import { SectionHeader } from "@/components/section-header";
 import { Card, CardContent, CardTitle, CardDescription } from "@/components/card";
 import { Book, Coffee, Camera, Headphones, Mountain, Code, Palette } from "lucide-react";
@@ -77,17 +76,13 @@ export default function Misc() {
   ];
 
   return (
-    <div className="container py-12 space-y-12 md:py-24 animate-fade-in relative overflow-hidden">
-      {/* Red blob decorative elements */}
-      <div className="red-blob-effect w-[300px] h-[300px] top-[-50px] right-[-150px]"></div>
-      <div className="red-blob-effect w-[200px] h-[200px] bottom-40 left-[-100px]"></div>
-      
+    <div className="container py-6 space-y-8 animate-fade-in relative overflow-hidden">
       <SectionHeader
         title="Miscellaneous"
         description="Other interests, hobbies, and things that inspire me outside of my professional work."
       />
       
-      <section className="space-y-8">
+      <section className="space-y-6">
         <SectionHeader
           title="Photo Collection"
           description="A collection of inspirational photography from my travels and projects."
@@ -130,7 +125,7 @@ export default function Misc() {
         ))}
       </div>
       
-      <section className="space-y-8">
+      <section className="space-y-6">
         <SectionHeader
           title="Reading List"
           description="Some books I've enjoyed recently and would recommend."
